@@ -41,6 +41,7 @@ public class Kanboard {
 	private static final String GET_ALL_TASK_FILES = "getAllTaskFiles";
 	private static final String GET_COLUMNS = "getColumns";
 	private static final String GET_PROJECT_BY_IDENTIFIER = "getProjectByIdentifier";
+	private static final String GET_PROJECT_BY_ID = "getProjectById";
 	private static final String GET_TASK = "getTask";
 	private static final String GET_TASK_BY_REFERENCE = "getTaskByReference";
 	private static final String GET_TASK_TAGS = "getTaskTags";
@@ -429,9 +430,9 @@ public class Kanboard {
 	public static JSONObject getProjectByIdentifier(JSONRPC2Session session, PrintStream logger,
 			String projectIdentifierValue, boolean debugMode) throws JSONRPC2SessionException, AbortException {
 		// Construct new getProjectByIdentifier request
-		String method = GET_PROJECT_BY_IDENTIFIER;
+		String method = GET_PROJECT_BY_ID;
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(IDENTIFIER, projectIdentifierValue);
+		params.put(PROJECT_ID, projectIdentifierValue);
 
 		JSONRPC2Request request = new JSONRPC2Request(method, params, 0);
 		if (debugMode) {

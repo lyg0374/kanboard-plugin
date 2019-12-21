@@ -73,7 +73,8 @@ public class Utils {
 
 		@Override
 		public void configure(HttpURLConnection connection) {
-			connection.addRequestProperty("X-API-Auth", this.xApiAuthToken);
+//			connection.addRequestProperty("X-API-Auth", this.xApiAuthToken);
+			connection.addRequestProperty("Authorization", "Basic " + this.xApiAuthToken);
 		}
 	}
 
